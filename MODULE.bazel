@@ -1,0 +1,17 @@
+module(
+    name = "com_grail_bazel_toolchain",
+    version = "0.8.2",
+)
+
+bazel_dep(name = "rules_cc", version = "0.0.6")  # NB: This isn't congruent with deps.bzl.
+bazel_dep(name = "bazel_skylib", version = "1.3.0")
+
+toolchain = use_extension("@com_grail_bazel_toolchain//toolchain:extensions.bzl", "toolchain")                                                                         
+
+use_repo(toolchain, "bzlmod_toolchain")
+use_repo(toolchain, "bzlmod_toolchain_llvm")
+register_toolchains("@bzlmod_toolchain//:all")
+
+# TODO: See if this can be removed.
+# See: https://github.com/bazelbuild/bazel/issues/17289#issuecomment-1438406403
+bazel_dep(name="platforms", version="0.0.6")
