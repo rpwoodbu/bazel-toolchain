@@ -320,6 +320,7 @@ def _cc_toolchain_str(
         "darwin-x86_64": "x86_64-apple-macosx",
         "darwin-aarch64": "aarch64-apple-macosx",
         "linux-aarch64": "aarch64-unknown-linux-gnu",
+        "linux-arm": "armv6-unknown-linux-gnueabihf",
         "linux-x86_64": "x86_64-unknown-linux-gnu",
         "wasm32": "wasm32-unknown-unknown",
         "wasm64": "wasm64-unknown-unknown",
